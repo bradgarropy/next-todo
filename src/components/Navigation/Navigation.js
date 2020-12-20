@@ -23,8 +23,8 @@ const Navigation = () => {
                 <NavigationLink>Home</NavigationLink>
             </Link>
 
-            <Link href="/about">
-                <NavigationLink>About</NavigationLink>
+            <Link href="/login">
+                <NavigationLink>Login</NavigationLink>
             </Link>
         </NavigationWrapper>
     )
