@@ -2,10 +2,10 @@ import Facebook from "components/Facebook"
 import Layout from "components/Layout"
 import Meta from "components/Meta"
 import Twitter from "components/Twitter"
+import {useAuth} from "hooks"
 import {useRouter} from "next/router"
 import {useState} from "react"
 import styled from "styled-components"
-import firebase from "utils/firebase"
 
 const FormWrapper = styled.form`
     input {
@@ -23,6 +23,7 @@ const FormWrapper = styled.form`
 `
 
 const LoginPage = () => {
+    const authCtx = useAuth()
     const router = useRouter()
     const [credentials, setCredentials] = useState({email: "", password: ""})
 
@@ -37,11 +38,7 @@ const LoginPage = () => {
 
     const onSubmit = async event => {
         event.preventDefault()
-
-        await firebase
-            .auth()
-            .signInWithEmailAndPassword(credentials.email, credentials.password)
-
+        authCtx.login(credentials.email, credentials.password)
         router.push("/")
     }
 
