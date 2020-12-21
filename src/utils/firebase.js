@@ -23,6 +23,7 @@ if (!firebase.apps.length) {
     if (typeof window !== "undefined") {
         firebase.analytics.isSupported().then(isSupported => {
             if (isSupported) {
+                console.log("STARTING ANALYTICS")
                 firebase.analytics()
             }
         })
