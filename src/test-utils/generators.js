@@ -1,4 +1,4 @@
-import {mockAuthCtx} from "test-utils/mocks"
+import {mockAuthCtx, mockTodoCtx} from "test-utils/mocks"
 
 const generateAuthCtx = overrides => {
     const authCtx = {
@@ -9,4 +9,13 @@ const generateAuthCtx = overrides => {
     return authCtx
 }
 
-export {generateAuthCtx}
+const generateTodoCtx = overrides => {
+    const todoCtx = {
+        ...mockTodoCtx,
+        ...overrides,
+    }
+
+    return todoCtx
+}
+
+export {generateAuthCtx, generateTodoCtx}
