@@ -1,10 +1,13 @@
 import {AuthProvider} from "context/auth"
+import {TodoProvider} from "context/todo"
 import PropTypes from "prop-types"
 
 const App = ({Component, pageProps}) => {
     return (
         <AuthProvider>
-            <Component {...pageProps} />
+            <TodoProvider>
+                <Component {...pageProps} />
+            </TodoProvider>
         </AuthProvider>
     )
 }
