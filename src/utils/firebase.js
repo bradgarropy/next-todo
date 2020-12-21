@@ -21,7 +21,11 @@ if (!firebase.apps.length) {
     firebase.firestore()
 
     if (typeof window !== "undefined") {
-        firebase.analytics()
+        firebase.analytics.isSupported().then(isSupported => {
+            if (isSupported) {
+                firebase.analytics()
+            }
+        })
     }
 }
 
