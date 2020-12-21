@@ -15,7 +15,7 @@ const config = {
     measurementId: "G-8R1ZRGFXCG",
 }
 
-if (typeof window !== "undefined" && !firebase.apps.length) {
+if (!firebase.apps.length) {
     firebase.initializeApp(config)
     firebase.analytics()
     firebase.auth()
