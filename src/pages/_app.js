@@ -10,7 +10,7 @@ const App = ({Component, pageProps}) => {
 }
 
 App.propTypes = {
-    Component: PropTypes.node,
+    Component: PropTypes.func,
     pageProps: PropTypes.object,
 }
 

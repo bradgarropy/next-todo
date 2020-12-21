@@ -17,9 +17,12 @@ const config = {
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config)
-    firebase.analytics()
     firebase.auth()
     firebase.firestore()
+
+    if (typeof window !== "undefined") {
+        firebase.analytics()
+    }
 }
 
 export default firebase
