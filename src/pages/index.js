@@ -21,7 +21,7 @@ const IndexPage = () => {
 
     const onSubmit = event => {
         event.preventDefault()
-        todoCtx.createTodo({id: Date.now(), text: todo})
+        todoCtx.createTodo({text: todo})
         setTodo("")
     }
 
