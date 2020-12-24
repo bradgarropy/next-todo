@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import {createContext, useState} from "react"
-import {useEffect} from "react"
 import firebase from "utils/firebase"
 
 const TodoContext = createContext()
@@ -8,31 +7,29 @@ const TodoContext = createContext()
 const TodoProvider = ({children}) => {
     const [todos, setTodos] = useState([])
 
-    useEffect(() => {
-        const readTodos = async () => {
-            const snapshot = await firebase
-                .firestore()
-                .collection("todos")
-                .get()
+    const createTodo = async todo => {
+        const ref = await firebase.firestore().collection("todos").add(todo)
+        setTodos(todos => [...todos, {id: ref.id, ...todo}])
+    }
 
-            const todos = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data(),
-            }))
-
-            setTodos(todos)
+    const readTodos = async user => {
+        if (!user) {
+            setTodos([])
+            return
         }
 
-        readTodos()
-    }, [])
-
-    const createTodo = async todo => {
-        const ref = await firebase
+        const snapshot = await firebase
             .firestore()
             .collection("todos")
-            .add({text: todo.text})
+            .where("uid", "==", user.uid)
+            .get()
 
-        setTodos(todos => [...todos, {id: ref.id, ...todo}])
+        const todos = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }))
+
+        setTodos(todos)
     }
 
     const deleteTodo = async id => {
@@ -43,6 +40,7 @@ const TodoProvider = ({children}) => {
     const context = {
         todos,
         createTodo,
+        readTodos,
         deleteTodo,
     }
 

@@ -3,8 +3,8 @@ import Layout from "components/Layout"
 import Meta from "components/Meta"
 import Todo from "components/Todo"
 import Twitter from "components/Twitter"
-import {useTodos} from "hooks"
-import {useState} from "react"
+import {useAuth, useTodos} from "hooks"
+import {useEffect, useState} from "react"
 import styled from "styled-components"
 
 const FormWrapper = styled.form`
@@ -12,8 +12,13 @@ const FormWrapper = styled.form`
 `
 
 const IndexPage = () => {
+    const authCtx = useAuth()
     const todoCtx = useTodos()
     const [todo, setTodo] = useState("")
+
+    useEffect(() => {
+        todoCtx.readTodos(authCtx.user)
+    }, [authCtx.user])
 
     const onChange = event => {
         setTodo(event.target.value)
@@ -21,7 +26,7 @@ const IndexPage = () => {
 
     const onSubmit = event => {
         event.preventDefault()
-        todoCtx.createTodo({text: todo})
+        todoCtx.createTodo({uid: authCtx.user.uid, text: todo})
         setTodo("")
     }
 
@@ -30,6 +35,8 @@ const IndexPage = () => {
             <Meta title="next starter" />
             <Facebook />
             <Twitter />
+
+            <h1>todos</h1>
 
             <FormWrapper onSubmit={onSubmit}>
                 <input
