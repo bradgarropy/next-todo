@@ -34,9 +34,13 @@ const Navigation = () => {
 
             <AuthButtons>
                 {authCtx.user ? (
-                    <NavigationLink onClick={authCtx.logout}>
-                        Logout
-                    </NavigationLink>
+                    <>
+                        <span>{authCtx.user.email}</span>
+
+                        <NavigationLink onClick={authCtx.logout}>
+                            Logout
+                        </NavigationLink>
+                    </>
                 ) : (
                     <>
                         <Link href="/signup">
