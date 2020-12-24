@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Container = styled.div`
-    margin: auto;
+    justify-self: center;
     max-width: 1000px;
 `
 
