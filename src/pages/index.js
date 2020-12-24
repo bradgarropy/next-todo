@@ -32,7 +32,7 @@ const IndexPage = () => {
 
     return (
         <Layout>
-            <Meta title="next starter" />
+            <Meta title="next todo" />
             <Facebook />
             <Twitter />
 

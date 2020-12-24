@@ -2,11 +2,11 @@ import Head from "next/head"
 import PropTypes from "prop-types"
 
 const Facebook = ({
-    url = "https://next-starter.bradgarropy.vercel.app",
+    url = "https://next-todo.bradgarropy.vercel.app",
     type = "website",
-    title = "next starter",
-    description = "⏭ next.js starter",
-    image = "https://next-starter.bradgarropy.vercel.app/facebook.png",
+    title = "next todo",
+    description = "✅ next.js todo",
+    image = "https://next-todo.bradgarropy.vercel.app/facebook.png",
 }) => {
     return (
         <Head>

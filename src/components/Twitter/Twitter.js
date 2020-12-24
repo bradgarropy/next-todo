@@ -4,9 +4,9 @@ import PropTypes from "prop-types"
 const Twitter = ({
     card = "summary",
     site = "@bradgarropy",
-    title = "next starter",
-    description = "⏭ next.js starter",
-    image = "https://next-starter.bradgarropy.vercel.app/twitter.png",
+    title = "next todo",
+    description = "✅ next.js todo",
+    image = "https://next-todo.bradgarropy.vercel.app/twitter.png",
 }) => {
     return (
         <Head>
