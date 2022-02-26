@@ -9,10 +9,6 @@ const Navigation: FC = () => {
             <Link to="/" className={styles.link}>
                 Home
             </Link>
-
-            <Link to="/about" className={styles.link}>
-                About
-            </Link>
         </nav>
     )
 }

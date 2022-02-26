@@ -4,5 +4,4 @@ import Navigation from "components/Navigation"
 test("shows navigation", () => {
     render(<Navigation />)
     expect(screen.getByText("Home"))
-    expect(screen.getByText("About"))
 })

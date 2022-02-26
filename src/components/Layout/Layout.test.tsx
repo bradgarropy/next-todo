@@ -9,7 +9,5 @@ test("shows layout", () => {
     )
 
     expect(screen.getByText("Home"))
-    expect(screen.getByText("About"))
     expect(screen.getByText("Testing"))
-    expect(screen.getByText("Footer"))
 })

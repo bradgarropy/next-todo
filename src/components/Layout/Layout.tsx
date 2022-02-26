@@ -1,4 +1,3 @@
-import Footer from "components/Footer"
 import Header from "components/Header"
 import {FC} from "react"
 
@@ -9,7 +8,6 @@ const Layout: FC = ({children}) => {
         <div className={styles.layout}>
             <Header />
             <div className="container">{children}</div>
-            <Footer />
         </div>
     )
 }
