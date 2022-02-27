@@ -9,6 +9,14 @@ const Navigation: FC = () => {
             <Link to="/" className={styles.link}>
                 Home
             </Link>
+
+            <Link to="/signup" className={styles.link}>
+                signup
+            </Link>
+
+            <Link to="/login" className={styles.link}>
+                login
+            </Link>
         </nav>
     )
 }

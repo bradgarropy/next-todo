@@ -1,8 +1,17 @@
 import SEO from "@bradgarropy/next-seo"
 import Layout from "components/Layout"
 import Todo from "components/Todo"
-import {ChangeEventHandler, FC, FormEventHandler, useState} from "react"
+import {GetServerSideProps} from "next"
+import {useRouter} from "next/router"
+import {
+    ChangeEventHandler,
+    FC,
+    FormEventHandler,
+    useEffect,
+    useState,
+} from "react"
 import {Todo as TodoType} from "types/todo"
+import {supabase} from "utils/supabase"
 import {createTodo, deleteTodo, readAllTodos, updateTodo} from "utils/todos"
 
 type IndexPageProps = {
@@ -10,8 +19,18 @@ type IndexPageProps = {
 }
 
 const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
+    const router = useRouter()
+
     const [todo, setTodo] = useState("")
     const [todos, setTodos] = useState(initialTodos)
+
+    useEffect(() => {
+        const user = supabase.auth.user()
+
+        if (!user) {
+            router.push("/login")
+        }
+    }, [router])
 
     const handleAdd: FormEventHandler<HTMLFormElement> = async event => {
         event.preventDefault()
@@ -69,7 +88,7 @@ const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
     )
 }
 
-const getServerSideProps = async () => {
+const getServerSideProps: GetServerSideProps = async () => {
     const todos = await readAllTodos()
 
     return {
