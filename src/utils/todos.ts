@@ -18,6 +18,16 @@ const readAllTodos = async () => {
     return todos
 }
 
+const updateTodo = async (id: Todo["id"], updates: Partial<Todo>) => {
+    const {data: updatedTodo} = await supabase
+        .from("todos")
+        .update(updates)
+        .eq("id", id)
+        .single()
+
+    return updatedTodo
+}
+
 const deleteTodo = async (id: Todo["id"]) => {
     const {data: deletedTodo} = await supabase
         .from<Todo>("todos")
@@ -28,4 +38,4 @@ const deleteTodo = async (id: Todo["id"]) => {
     return deletedTodo
 }
 
-export {createTodo, deleteTodo, readAllTodos}
+export {createTodo, deleteTodo, readAllTodos, updateTodo}

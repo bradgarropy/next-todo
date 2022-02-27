@@ -1,11 +1,12 @@
 import SEO from "@bradgarropy/next-seo"
 import Layout from "components/Layout"
+import Todo from "components/Todo"
 import {ChangeEventHandler, FC, FormEventHandler, useState} from "react"
-import {Todo} from "types/todo"
-import {createTodo, deleteTodo, readAllTodos} from "utils/todos"
+import {Todo as TodoType} from "types/todo"
+import {createTodo, deleteTodo, readAllTodos, updateTodo} from "utils/todos"
 
 type IndexPageProps = {
-    initialTodos: Todo[]
+    initialTodos: TodoType[]
 }
 
 const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
@@ -24,7 +25,20 @@ const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
         setTodo("")
     }
 
-    const handleDelete = async (id: Todo["id"]) => {
+    const handleCompleted = async (id: TodoType["id"]) => {
+        const index = todos.findIndex(todo => todo.id === id)
+
+        const updatedTodo = await updateTodo(id, {
+            isCompleted: !todos[index].isCompleted,
+        })
+
+        const newTodos = [...todos]
+        newTodos[index] = updatedTodo
+
+        setTodos(newTodos)
+    }
+
+    const handleDelete = async (id: TodoType["id"]) => {
         const deletedTodo = await deleteTodo(id)
         setTodos(todos.filter(todo => todo.id !== deletedTodo.id))
     }
@@ -43,16 +57,12 @@ const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
 
             {todos.map(todo => {
                 return (
-                    <div key={todo.id}>
-                        <p>{todo.name}</p>
-
-                        <button
-                            type="button"
-                            onClick={() => handleDelete(todo.id)}
-                        >
-                            delete
-                        </button>
-                    </div>
+                    <Todo
+                        key={todo.id}
+                        todo={todo}
+                        onCompleted={handleCompleted}
+                        onDelete={handleDelete}
+                    />
                 )
             })}
         </Layout>
