@@ -27,6 +27,8 @@ const LoginPage: FC<LoginPageProps> = () => {
         <Layout>
             <SEO title="next starter" />
 
+            <h1>login</h1>
+
             <form onSubmit={handleSignup}>
                 <label htmlFor="email">Email</label>
                 <input

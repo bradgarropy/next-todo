@@ -69,6 +69,9 @@ const IndexPage: FC<IndexPageProps> = ({initialTodos}) => {
     return (
         <Layout>
             <SEO title="next starter" />
+
+            <h1>todos</h1>
+
             <form onSubmit={handleAdd}>
                 <input type="text" value={todo} onChange={handleChange} />
                 <button type="submit">add</button>
