@@ -28,13 +28,17 @@ const LoginPage: FC<LoginPageProps> = () => {
             <SEO title="next starter" />
 
             <form onSubmit={handleSignup}>
+                <label htmlFor="email">Email</label>
                 <input
+                    id="email"
                     type="email"
                     value={email}
                     onChange={event => setEmail(event.target.value)}
                 />
 
+                <label htmlFor="password">Password</label>
                 <input
+                    id="password"
                     type="password"
                     value={password}
                     onChange={event => setPassword(event.target.value)}
