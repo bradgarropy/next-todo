@@ -27,7 +27,8 @@ const LoginPage: FC<LoginPageProps> = () => {
         if (user) {
             router.push("/todos")
         }
-    }, [user, router])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
 
     return (
         <Layout>
