@@ -20,7 +20,7 @@ const LoginPage: FC<LoginPageProps> = () => {
             password,
         })
 
-        router.push("/")
+        router.push("/todos")
     }
 
     return (
