@@ -1,8 +1,10 @@
 import "../styles/styles.css"
 
 import SEO from "@bradgarropy/next-seo"
+import {UserProvider} from "@supabase/supabase-auth-helpers/react"
 import type {AppProps} from "next/app"
 import {ReactElement} from "react"
+import {supabase} from "utils/supabase"
 
 import pkg from "../../package.json"
 
@@ -26,7 +28,9 @@ const App = ({Component, pageProps}: AppProps): ReactElement => {
                 }}
             />
 
-            <Component {...pageProps} />
+            <UserProvider supabaseClient={supabase}>
+                <Component {...pageProps} />
+            </UserProvider>
         </>
     )
 }
