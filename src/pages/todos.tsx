@@ -1,18 +1,30 @@
 import SEO from "@bradgarropy/next-seo"
-import {withAuthRequired} from "@supabase/supabase-auth-helpers/nextjs"
 import Layout from "components/Layout"
 import Todo from "components/Todo"
-import {ChangeEventHandler, FC, FormEventHandler, useState} from "react"
+import {
+    ChangeEventHandler,
+    FC,
+    FormEventHandler,
+    useEffect,
+    useState,
+} from "react"
 import {Todo as TodoType} from "types/todo"
 import {createTodo, deleteTodo, readAllTodos, updateTodo} from "utils/todos"
 
-type TodosPageProps = {
-    initialTodos: TodoType[]
-}
+type TodosPageProps = null
 
-const TodosPage: FC<TodosPageProps> = ({initialTodos}) => {
+const TodosPage: FC<TodosPageProps> = () => {
     const [todo, setTodo] = useState("")
-    const [todos, setTodos] = useState(initialTodos)
+    const [todos, setTodos] = useState([])
+
+    useEffect(() => {
+        const fetchTodos = async () => {
+            const todos = await readAllTodos()
+            setTodos(todos)
+        }
+
+        fetchTodos()
+    }, [])
 
     const handleAdd: FormEventHandler<HTMLFormElement> = async event => {
         event.preventDefault()
@@ -73,18 +85,4 @@ const TodosPage: FC<TodosPageProps> = ({initialTodos}) => {
     )
 }
 
-const getServerSideProps = withAuthRequired({
-    redirectTo: "/login",
-    getServerSideProps: async ctx => {
-        const todos = await readAllTodos(ctx)
-
-        return {
-            props: {
-                initialTodos: todos,
-            },
-        }
-    },
-})
-
 export default TodosPage
-export {getServerSideProps}

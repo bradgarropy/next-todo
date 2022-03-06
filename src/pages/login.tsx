@@ -1,5 +1,4 @@
 import SEO from "@bradgarropy/next-seo"
-import {useUser} from "@supabase/supabase-auth-helpers/react"
 import Layout from "components/Layout"
 import {useRouter} from "next/router"
 import {FC, FormEventHandler, useEffect, useState} from "react"
@@ -8,7 +7,7 @@ import {supabase} from "utils/supabase"
 type LoginPageProps = unknown
 
 const LoginPage: FC<LoginPageProps> = () => {
-    const {user} = useUser()
+    const user = supabase.auth.user()
     const router = useRouter()
 
     const [email, setEmail] = useState("")
@@ -21,14 +20,16 @@ const LoginPage: FC<LoginPageProps> = () => {
             email,
             password,
         })
+
+        router.push("/todos")
     }
 
-    useEffect(() => {
-        if (user) {
-            router.push("/todos")
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
+    // useEffect(() => {
+    //     if (user) {
+    //         router.push("/todos")
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [user])
 
     return (
         <Layout>

@@ -1,12 +1,12 @@
 import SEO from "@bradgarropy/next-seo"
-import {useUser} from "@supabase/supabase-auth-helpers/react"
 import Layout from "components/Layout"
 import {FC} from "react"
+import {supabase} from "utils/supabase"
 
 type IndexPageProps = null
 
 const IndexPage: FC<IndexPageProps> = () => {
-    const {user} = useUser()
+    const user = supabase.auth.user()
 
     return (
         <Layout>
