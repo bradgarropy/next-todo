@@ -45,6 +45,7 @@ const LoginPage: FC<LoginPageProps> = () => {
                     value={password}
                     onChange={event => setPassword(event.target.value)}
                 />
+
                 <button type="submit">login</button>
             </form>
         </Layout>
