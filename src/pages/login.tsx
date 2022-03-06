@@ -24,13 +24,6 @@ const LoginPage: FC<LoginPageProps> = () => {
         router.push("/todos")
     }
 
-    // useEffect(() => {
-    //     if (user) {
-    //         router.push("/todos")
-    //     }
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [user])
-
     return (
         <Layout>
             <SEO title="next starter" />
