@@ -1,13 +1,12 @@
 import SEO from "@bradgarropy/next-seo"
 import Layout from "components/Layout"
 import {useRouter} from "next/router"
-import {FC, FormEventHandler, useEffect, useState} from "react"
+import {FC, FormEventHandler, useState} from "react"
 import {supabase} from "utils/supabase"
 
 type LoginPageProps = unknown
 
 const LoginPage: FC<LoginPageProps> = () => {
-    const user = supabase.auth.user()
     const router = useRouter()
 
     const [email, setEmail] = useState("")
