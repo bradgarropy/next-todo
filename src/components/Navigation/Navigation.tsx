@@ -1,11 +1,18 @@
 import Link from "@bradgarropy/next-link"
-import {useUser} from "@supabase/supabase-auth-helpers/react"
+import {useRouter} from "next/router"
 import {FC} from "react"
+import {supabase} from "utils/supabase"
 
 import styles from "./Navigation.module.css"
 
 const Navigation: FC = () => {
-    const {user} = useUser()
+    const user = supabase.auth.user()
+    const router = useRouter()
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut()
+        router.push("/")
+    }
 
     return (
         <nav className={styles.navigation}>
@@ -19,9 +26,7 @@ const Navigation: FC = () => {
                         todos
                     </Link>
 
-                    <Link to="/api/auth/logout" className={styles.link}>
-                        logout
-                    </Link>
+                    <button onClick={handleLogout}>logout</button>
                 </>
             ) : (
                 <>
