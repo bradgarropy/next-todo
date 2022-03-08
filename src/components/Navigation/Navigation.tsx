@@ -3,7 +3,7 @@ import {useRouter} from "next/router"
 import {FC} from "react"
 import {supabase} from "utils/supabase"
 
-import styles from "./Navigation.module.css"
+import NavigationStyles from "./Navigation.module.css"
 
 const Navigation: FC = () => {
     const user = supabase.auth.user()
@@ -15,26 +15,31 @@ const Navigation: FC = () => {
     }
 
     return (
-        <nav className={styles.navigation}>
-            <Link to="/" className={styles.link}>
+        <nav className={NavigationStyles.navigation}>
+            <Link to="/" className={NavigationStyles.link}>
                 home
             </Link>
 
             {user ? (
                 <>
-                    <Link to="/todos" className={styles.link}>
+                    <Link to="/todos" className={NavigationStyles.link}>
                         todos
                     </Link>
 
-                    <button onClick={handleLogout}>logout</button>
+                    <button
+                        className={NavigationStyles.logout}
+                        onClick={handleLogout}
+                    >
+                        logout
+                    </button>
                 </>
             ) : (
                 <>
-                    <Link to="/signup" className={styles.link}>
+                    <Link to="/signup" className={NavigationStyles.link}>
                         signup
                     </Link>
 
-                    <Link to="/login" className={styles.link}>
+                    <Link to="/login" className={NavigationStyles.link}>
                         login
                     </Link>
                 </>

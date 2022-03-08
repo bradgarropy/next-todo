@@ -1,6 +1,7 @@
 import SEO from "@bradgarropy/next-seo"
 import Layout from "components/Layout"
 import Todo from "components/Todo"
+import TodoForm from "components/TodoForm"
 import {
     ChangeEventHandler,
     FC,
@@ -14,7 +15,6 @@ import {createTodo, deleteTodo, readAllTodos, updateTodo} from "utils/todos"
 type TodosPageProps = null
 
 const TodosPage: FC<TodosPageProps> = () => {
-    const [todo, setTodo] = useState("")
     const [todos, setTodos] = useState([])
 
     useEffect(() => {
@@ -26,16 +26,13 @@ const TodosPage: FC<TodosPageProps> = () => {
         fetchTodos()
     }, [])
 
-    const handleAdd: FormEventHandler<HTMLFormElement> = async event => {
-        event.preventDefault()
-
+    const handleAdd = async (todo: string) => {
         const newTodo = await createTodo({
             name: todo,
             isCompleted: false,
         })
 
         setTodos([newTodo, ...todos])
-        setTodo("")
     }
 
     const handleCompleted = async (id: TodoType["id"]) => {
@@ -56,20 +53,13 @@ const TodosPage: FC<TodosPageProps> = () => {
         setTodos(todos.filter(todo => todo.id !== deletedTodo.id))
     }
 
-    const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
-        setTodo(event.target.value)
-    }
-
     return (
         <Layout>
             <SEO title="next starter" />
 
             <h1>todos</h1>
 
-            <form onSubmit={handleAdd}>
-                <input type="text" value={todo} onChange={handleChange} />
-                <button type="submit">add</button>
-            </form>
+            <TodoForm onSubmit={handleAdd} />
 
             {todos.map(todo => {
                 return (

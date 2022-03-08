@@ -1,0 +1,37 @@
+.form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.label {
+    justify-self: end;
+    align-self: center;
+}
+
+.input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--offBlack);
+    font-size: 1rem;
+}
+
+.submit {
+    grid-column-start: 2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--offBlack);
+    font-size: 1.25rem;
+    cursor: pointer;
+    background: var(--black);
+    color: var(--white);
+    transition-property: transform;
+    transition-duration: 300ms;
+    font-weight: bold;
+}
+
+.submit:hover {
+    transform: scale(1.05);
+}

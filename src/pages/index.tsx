@@ -3,9 +3,7 @@ import Layout from "components/Layout"
 import {FC} from "react"
 import {supabase} from "utils/supabase"
 
-type IndexPageProps = null
-
-const IndexPage: FC<IndexPageProps> = () => {
+const IndexPage: FC = () => {
     const user = supabase.auth.user()
 
     return (
