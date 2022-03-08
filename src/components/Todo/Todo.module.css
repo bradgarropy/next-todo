@@ -1,5 +1,22 @@
 .todo {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    font-size: 1.25rem;
+}
+
+.complete {
+    display: grid;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+}
+
+.delete {
+    display: grid;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
 }

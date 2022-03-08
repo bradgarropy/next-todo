@@ -4,7 +4,7 @@ import AuthFormStyles from "./AuthForm.module.css"
 
 type AuthFormProps = {
     text: string
-    onSubmit: (email: string, password: string) => void
+    onSubmit: (email: string, password: string) => Promise<void>
 }
 
 const AuthForm: FC<AuthFormProps> = ({text, onSubmit}) => {

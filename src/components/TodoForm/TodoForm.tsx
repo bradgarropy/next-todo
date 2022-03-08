@@ -3,7 +3,7 @@ import {FC, FormEventHandler, useState} from "react"
 import TodoFormStyles from "./TodoForm.module.css"
 
 type TodoFormProps = {
-    onSubmit: (todo: string) => void
+    onSubmit: (todo: string) => Promise<void>
 }
 
 const TodoForm: FC<TodoFormProps> = ({onSubmit}) => {

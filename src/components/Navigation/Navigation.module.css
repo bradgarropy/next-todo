@@ -16,19 +16,13 @@
 }
 
 .logout {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--offBlack);
-    font-size: 0.75rem;
-    cursor: pointer;
-    background: var(--white);
-    color: var(--black);
-    transition-property: transform;
-    transition-duration: 300ms;
-    font-weight: bold;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    padding: 0rem;
+    font-family: inherit;
 }
 
 .logout:hover {
     color: var(--gray);
-    border-color: var(--gray);
 }

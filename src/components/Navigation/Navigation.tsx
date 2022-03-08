@@ -1,4 +1,5 @@
 import Link from "@bradgarropy/next-link"
+import classNames from "classnames"
 import {useRouter} from "next/router"
 import {FC} from "react"
 import {supabase} from "utils/supabase"
@@ -27,7 +28,10 @@ const Navigation: FC = () => {
                     </Link>
 
                     <button
-                        className={NavigationStyles.logout}
+                        className={classNames(
+                            NavigationStyles.logout,
+                            NavigationStyles.link,
+                        )}
                         onClick={handleLogout}
                     >
                         logout
