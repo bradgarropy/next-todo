@@ -21,7 +21,7 @@ const LoginPage: FC<LoginPageProps> = () => {
 
     return (
         <Layout>
-            <SEO title="next starter" />
+            <SEO title="next todo" />
 
             <h1>login</h1>
             <AuthForm type="login" onSubmit={handleLogin} />

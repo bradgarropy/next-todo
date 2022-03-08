@@ -19,7 +19,7 @@ const SignupPage: FC = () => {
 
     return (
         <Layout>
-            <SEO title="next starter" />
+            <SEO title="next todo" />
 
             <h1>signup</h1>
 

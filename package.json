@@ -1,7 +1,7 @@
 {
-    "name": "next-starter",
+    "name": "next-todo",
     "version": "2.8.0",
-    "description": "⏭ next.js starter",
+    "description": "✅ next.js todo",
     "keywords": [
         "typescript",
         "react",
@@ -9,11 +9,13 @@
         "prettier",
         "jest",
         "vercel",
-        "nextjs"
+        "nextjs",
+        "heroicons",
+        "supabase"
     ],
-    "homepage": "https://next-starter.bradgarropy.vercel.app",
+    "homepage": "https://next-todo.bradgarropy.vercel.app",
     "bugs": {
-        "url": "https://github.com/bradgarropy/next-starter/issues"
+        "url": "https://github.com/bradgarropy/next-todo/issues"
     },
     "license": "MIT",
     "author": {
@@ -23,7 +25,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/bradgarropy/next-starter"
+        "url": "https://github.com/bradgarropy/next-todo"
     },
     "scripts": {
         "start": "next",

@@ -8,7 +8,7 @@ const IndexPage: FC = () => {
 
     return (
         <Layout>
-            <SEO title="next starter" />
+            <SEO title="next todo" />
 
             <h1>home</h1>
             <pre>{user?.email}</pre>
