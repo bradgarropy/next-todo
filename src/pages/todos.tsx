@@ -2,13 +2,7 @@ import SEO from "@bradgarropy/next-seo"
 import Layout from "components/Layout"
 import Todo from "components/Todo"
 import TodoForm from "components/TodoForm"
-import {
-    ChangeEventHandler,
-    FC,
-    FormEventHandler,
-    useEffect,
-    useState,
-} from "react"
+import {FC, useEffect, useState} from "react"
 import {Todo as TodoType} from "types/todo"
 import {createTodo, deleteTodo, readAllTodos, updateTodo} from "utils/todos"
 

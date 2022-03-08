@@ -1,3 +1,4 @@
+import {User} from "@supabase/supabase-js"
 import {Todo} from "types/todo"
 
 const mockTodos: Todo[] = [
@@ -17,4 +18,14 @@ const mockTodos: Todo[] = [
 
 const mockTodo: Todo = mockTodos[0]
 
-export {mockTodo, mockTodos}
+const mockUser: User = {
+    app_metadata: {
+        provider: "email",
+    },
+    aud: "authenticated",
+    created_at: "2022-03-01T00:00:00.00000Z",
+    id: "abc123",
+    user_metadata: {},
+}
+
+export {mockTodo, mockTodos, mockUser}
