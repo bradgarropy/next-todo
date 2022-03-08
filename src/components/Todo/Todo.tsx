@@ -15,6 +15,7 @@ const Todo: FC<TodoProps> = ({todo, onDelete, onCompleted}) => {
             <button
                 className={TodoStyles.delete}
                 type="button"
+                aria-label={todo.isCompleted ? "complete" : "incomplete"}
                 onClick={() => onCompleted(todo.id)}
             >
                 {todo.isCompleted ? (
@@ -53,6 +54,7 @@ const Todo: FC<TodoProps> = ({todo, onDelete, onCompleted}) => {
             <button
                 className={TodoStyles.delete}
                 type="button"
+                aria-label="delete"
                 onClick={() => onDelete(todo.id)}
             >
                 <svg

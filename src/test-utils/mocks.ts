@@ -6,17 +6,19 @@ const mockTodos: Todo[] = [
         createdAt: "2022-01-01T00:00:00.000Z",
         id: 1,
         isCompleted: true,
-        name: "make one dollar",
+        name: "complete todo",
     },
     {
         createdAt: "2022-01-02T00:00:00.000Z",
         id: 2,
         isCompleted: false,
-        name: "make one million dollars",
+        name: "incomplete todo",
     },
 ]
 
 const mockTodo: Todo = mockTodos[0]
+const mockCompleteTodo: Todo = mockTodos[0]
+const mockIncompleteTodo: Todo = mockTodos[1]
 
 const mockUser: User = {
     app_metadata: {
@@ -28,4 +30,4 @@ const mockUser: User = {
     user_metadata: {},
 }
 
-export {mockTodo, mockTodos, mockUser}
+export {mockCompleteTodo, mockIncompleteTodo, mockTodo, mockTodos, mockUser}

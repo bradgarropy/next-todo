@@ -4,14 +4,10 @@ import AuthForm from "components/AuthForm"
 
 const mockOnSubmit = jest.fn()
 
-test("shows labels", () => {
+test("shows auth form", () => {
     render(<AuthForm text="submit" onSubmit={mockOnSubmit} />)
     expect(screen.getByText("email"))
     expect(screen.getByText("password"))
-})
-
-test("shows submit button", () => {
-    render(<AuthForm text="submit" onSubmit={mockOnSubmit} />)
     expect(screen.getByText("submit"))
 })
 

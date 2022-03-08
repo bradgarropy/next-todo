@@ -20,6 +20,7 @@ const TodoForm: FC<TodoFormProps> = ({onSubmit}) => {
             <input
                 type="text"
                 value={todo}
+                aria-label="todo"
                 className={TodoFormStyles.input}
                 onChange={event => setTodo(event.target.value)}
             />
