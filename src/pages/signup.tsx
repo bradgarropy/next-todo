@@ -26,7 +26,7 @@ const SignupPage: FC = () => {
             {user ? (
                 <p>{`Go check your email, ${user.email}.`}</p>
             ) : (
-                <AuthForm text="signup" onSubmit={handleSignup} />
+                <AuthForm type="signup" onSubmit={handleSignup} />
             )}
         </Layout>
     )

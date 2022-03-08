@@ -4,15 +4,22 @@ import AuthForm from "components/AuthForm"
 
 const mockOnSubmit = jest.fn()
 
-test("shows auth form", () => {
-    render(<AuthForm text="submit" onSubmit={mockOnSubmit} />)
+test("shows login form", () => {
+    render(<AuthForm type="login" onSubmit={mockOnSubmit} />)
     expect(screen.getByText("email"))
     expect(screen.getByText("password"))
-    expect(screen.getByText("submit"))
+    expect(screen.getByText("login"))
+})
+
+test("shows signup form", () => {
+    render(<AuthForm type="signup" onSubmit={mockOnSubmit} />)
+    expect(screen.getByText("email"))
+    expect(screen.getByText("password"))
+    expect(screen.getByText("signup"))
 })
 
 test("accepts email and password input", () => {
-    render(<AuthForm text="submit" onSubmit={mockOnSubmit} />)
+    render(<AuthForm type="login" onSubmit={mockOnSubmit} />)
 
     userEvent.type(screen.getByLabelText("email"), "me@gmail.com")
     userEvent.type(screen.getByLabelText("password"), "secret")
@@ -22,11 +29,11 @@ test("accepts email and password input", () => {
 })
 
 test("submits the authentication form", () => {
-    render(<AuthForm text="submit" onSubmit={mockOnSubmit} />)
+    render(<AuthForm type="login" onSubmit={mockOnSubmit} />)
 
     userEvent.type(screen.getByLabelText("email"), "me@gmail.com")
     userEvent.type(screen.getByLabelText("password"), "secret")
-    userEvent.click(screen.getByText("submit"))
+    userEvent.click(screen.getByText("login"))
 
     expect(mockOnSubmit).toHaveBeenCalledTimes(1)
     expect(mockOnSubmit).toHaveBeenCalledWith("me@gmail.com", "secret")

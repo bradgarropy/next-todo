@@ -24,7 +24,7 @@ const LoginPage: FC<LoginPageProps> = () => {
             <SEO title="next starter" />
 
             <h1>login</h1>
-            <AuthForm text="login" onSubmit={handleLogin} />
+            <AuthForm type="login" onSubmit={handleLogin} />
         </Layout>
     )
 }
