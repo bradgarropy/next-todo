@@ -1,6 +1,6 @@
 # ✅ next.js todo
 
-_A basic todo appliacation built with [Next.js][next] and [Supabase][supabase]._
+_A basic todo application built with [Next.js][next] and [Supabase][supabase]._
 
 [![vercel][vercel-badge]][vercel]
 [![github actions][github-actions-badge]][github-actions]
