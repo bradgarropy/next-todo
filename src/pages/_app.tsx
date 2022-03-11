@@ -2,6 +2,7 @@ import "../styles/styles.css"
 
 import SEO from "@bradgarropy/next-seo"
 import type {AppProps} from "next/app"
+import Head from "next/head"
 import {ReactElement, useEffect} from "react"
 
 import pkg from "../../package.json"
@@ -15,6 +16,12 @@ const App = ({Component, pageProps}: AppProps): ReactElement => {
 
     return (
         <>
+            <Head>
+                <meta name="theme-color" content="#ffffff" />
+                <meta name="viewport" content="viewport-fit=cover" />
+                <link rel="manifest" href="/manifest.json" />
+            </Head>
+
             <SEO
                 title={pkg.name}
                 description={pkg.description}
@@ -31,7 +38,6 @@ const App = ({Component, pageProps}: AppProps): ReactElement => {
                     card: "summary",
                 }}
             />
-
             <Component {...pageProps} />
         </>
     )
