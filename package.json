@@ -1,6 +1,6 @@
 {
     "name": "next-todo",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "✅ next.js todo",
     "keywords": [
         "typescript",
@@ -11,7 +11,8 @@
         "vercel",
         "nextjs",
         "heroicons",
-        "supabase"
+        "supabase",
+        "pwa"
     ],
     "homepage": "https://next-todo.bradgarropy.vercel.app",
     "bugs": {
