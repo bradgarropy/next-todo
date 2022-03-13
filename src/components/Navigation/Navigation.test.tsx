@@ -15,6 +15,16 @@ jest.mock("utils/supabase", () => {
     }
 })
 
+jest.mock("next/router", () => {
+    return {
+        useRouter: () => {
+            return {
+                push: () => jest.fn(),
+            }
+        },
+    }
+})
+
 const mockAuthUser = jest.mocked(supabase.auth.user)
 const mockAuthSignOut = jest.mocked(supabase.auth.signOut)
 
