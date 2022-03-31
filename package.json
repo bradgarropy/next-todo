@@ -1,6 +1,6 @@
 {
     "name": "next-todo",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "✅ next.js todo",
     "keywords": [
         "typescript",
@@ -42,6 +42,7 @@
         "new": "plop"
     },
     "dependencies": {
+        "@bradgarropy/next-google-analytics": "^1.0.2",
         "@bradgarropy/next-link": "^1.0.2",
         "@bradgarropy/next-seo": "^1.1.0",
         "@heroicons/react": "^1.0.6",
