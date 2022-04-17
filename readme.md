@@ -10,7 +10,7 @@ _A basic todo application built with [Next.js][next] and [Supabase][supabase]._
 [![discord][discord-badge]][discord]
 
 <p align="center">
-    <a href="https://next-todo.bradgarropy.vercel.app">
+    <a href="https://next-todo-bradgarropy.vercel.app">
         <img alt="next todo" src="./public/github.png" width="300">
     </a>
 </p>

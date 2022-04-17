@@ -1,6 +1,6 @@
 {
     "name": "next-todo",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "✅ next.js todo",
     "keywords": [
         "typescript",
@@ -14,7 +14,7 @@
         "supabase",
         "pwa"
     ],
-    "homepage": "https://next-todo.bradgarropy.vercel.app",
+    "homepage": "https://next-todo-bradgarropy.vercel.app",
     "bugs": {
         "url": "https://github.com/bradgarropy/next-todo/issues"
     },
